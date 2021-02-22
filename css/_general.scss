@@ -1,0 +1,139 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Commissioner', sans-serif;
+    font-size: em(16);
+}
+
+// Colors
+
+$moderate-cyan: hsl(176, 50%, 47%);
+$dark-cyan: hsl(176, 72%, 28%);
+
+$black: hsl(0, 0%, 0%);
+$dark-gray: hsl(0, 0%, 48%);
+
+@function rem($size, $context: 16){
+    @return $size / $context + rem;
+}
+
+@function em($size, $context: 16){
+    @return $size / $context + em;
+}
+
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+@mixin device($size){
+    @if $size == desktop{
+        @media screen and (min-width: #{$l-device}){
+            @content;
+        }
+    }
+    @else if $size == tablet{
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}){
+            @content;
+        }
+    }
+
+    @else if $size == phone{
+        @media screen and (max-width: #{$m-device - 1}){
+            @content;
+        }
+    }
+}
+
+.container{
+    max-width: rem(945);
+    margin: 0 auto;
+
+    padding: rem(0) rem(16);
+
+    @include device(phone){
+        max-width: rem(400);
+    }
+    
+}
+
+a{
+    color: currentColor;
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+body{
+    background-color: rgb(223, 223, 223);
+}
+
+.content-hide{
+    filter: blur(5px) !important;
+    transition: .3s all ease-in;
+}
+
+.button{
+    background: $moderate-cyan;
+    padding: rem(16) rem(32);
+    color: white;
+    font-weight: 700;
+    border-radius: rem(32);
+
+    @include device(phone){
+        text-align: center;
+    }
+
+}
+
+.secondary-button{
+    display: flex;
+    align-items:center;
+    img{
+        z-index: 1;
+    }
+    p{
+        padding: rem(16) rem(32);
+        border-radius: rem(32);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background:hsl(0, 0%, 93%);
+        color: $dark-gray;
+        font-weight: bold;
+        position: relative;
+        left: rem(-15);
+
+        @include device(phone){
+            padding: rem(16) rem(45);
+        }
+    }
+}
+
+.out-button{
+    background: grey !important;
+}
+
+.show{
+    display: flex !important;
+}
+
+.button-form{
+    margin-left: rem(8);
+    background: $moderate-cyan;
+    outline: none;
+    border: none;
+    border-radius: rem(16);
+    width: rem(128);
+    height: rem(40);
+    color: white;
+    font-weight: bold;
+}
+
+.show-modal{
+    display: block !important;
+}

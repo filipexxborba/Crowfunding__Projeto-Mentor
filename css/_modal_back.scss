@@ -1,0 +1,159 @@
+.modal-back-start{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: rem(128);
+    left: 20%;
+    background: white;
+    padding: rem(32);
+    border-radius: rem(16);
+    box-shadow: 4px 4px 16px 16px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    max-width: 65%;
+
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        margin-bottom: rem(32);
+        img{
+            cursor: pointer;
+        }
+    }
+    p{
+        color: $dark-gray;
+    }
+
+    .form-horizontal{
+        margin-top: rem(32);
+        
+        .input__div{
+            padding: rem(32);
+            margin: rem(32) 0;
+            box-shadow: 0px 0px 2px 0px rgba(31, 31, 31, 0.7);
+            border-radius: rem(16);
+
+            
+            
+            &__title{
+                display: flex;
+                align-items: center;
+
+                h4{
+                    margin-left: rem(16);
+                }
+                input[type="radio"]{
+                    position: relative;
+                    top: rem(2);
+                    width: rem(20);
+                    height: rem(20);
+                }
+                &__info{
+                    position: relative;
+                    display: flex;
+
+                    @include device(phone){
+                        flex-direction: column;
+                    }
+                    h4{
+                        margin-left: rem(16);
+                        @include device(phone){
+                            margin-left: rem(32);
+                        }
+                    }
+                    
+                    input[type="radio"]{
+                        position: relative;
+                        top: rem(2);
+                        width: rem(20);
+                        height: rem(20);
+                    }
+                    span{
+                        color: $moderate-cyan;
+                        margin-left: rem(32);
+                    }
+
+                    .input__div__title__remain{
+                        h5{
+                            position: absolute;
+                            right: 0;
+
+                            @include device(phone){
+                                bottom: 0;
+                            }
+                        }
+
+                        .text_info{
+                            position: absolute;
+                            right: 0;
+                        }
+
+                        .label{
+                            color: black;
+                        }
+                    }
+                }
+                
+            }
+            p{
+                margin-top: rem(16);
+                margin-left: rem(35);
+            }
+
+            &__pledge{
+                @include device(phone){
+                    flex-direction: column;
+                }
+
+                p{
+                    @include device(phone){
+                        text-align: center;
+                        display: block;
+                        margin: 0 auto rem(16) auto;
+                    }
+                }
+                margin-top: rem(16);
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+                border-top: solid .1px rgb(194, 194, 194);
+                margin-top: rem(32);
+                padding-top: rem(16);
+
+                transition: all .3s ease-in-out;
+
+                .continue{
+                    padding: rem(10) rem(20);
+                }
+
+                &__value{
+                    position: relative;
+                    top: rem(8);
+                }
+
+                input[type="number"]{
+                    font-weight: 700;
+                    padding: rem(4);
+                    width: rem(64);
+                    height: rem(40);
+                    text-indent: rem(8);
+                    border-radius: rem(16);
+                    border: 1px solid rgba(0, 0, 0, 0.5);
+                    outline: none;
+
+                    &:active{
+                        outline: none;
+                    }
+
+                    &::selection{
+                        outline:none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.show-pledge{
+    display: flex !important;
+}

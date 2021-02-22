@@ -1,0 +1,49 @@
+.header{
+    background: url(../images/image-hero-desktop.jpg) center no-repeat;
+    object-fit: cover;
+    padding: rem(32) rem(16) rem(256) rem(16);
+
+    &__navbar{
+        display: flex;
+        justify-content: space-between;
+        @include device(phone){
+            flex-direction: column;
+        }
+
+        &__logo{
+            @include device(phone){
+                margin: 0 auto;
+            }
+        }
+
+        &__nav{
+
+            @include device(phone){
+                margin-top: rem(16);
+                padding: rem(0) rem(16);
+            }
+
+            ul{
+                display: flex;
+                @include device(phone){
+                    justify-content: space-between;
+                }
+
+                li{
+                    color: white;
+                    font-weight: 700;
+                    @include device(phone){
+                        width:100%;
+                    }
+                }
+                li+li{
+                    margin-left: rem(32);
+
+                    @include device(phone){
+                        margin-left: rem(0);
+                    }
+                }
+            }
+        }
+    }
+}
